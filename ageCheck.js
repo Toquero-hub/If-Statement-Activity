@@ -1,19 +1,25 @@
+"use strict";
+
+const ps = require("prompt-sync");
+const prompt = ps();
+
 // Prompt the user to enter their age
-const age = prompt("Enter your age:");
+let age = prompt("Enter your age:");
 
 // Convert the input to a number
-const ageNumber = Number(age);
+age = Number(age);
+console.log("Age input:", age); // Debug log
 
 // Check if the input is a valid number
-if (isNaN(ageNumber) || ageNumber < 0) {
-console.log("Please enter a valid age.");
+if (isNaN(age)) {
+    console.log("Please enter a valid number for your age.");
 } else {
-// Determine if the user is a teenager or an adult
-if (ageNumber >= 1 && ageNumber <= 19) {
-console.log("You are a teenager.");
-} else if (ageNumber >= 20) {
-console.log("You are an adult.");
-} else {
-console.log("You are not in the specified age range.");
-}
+    // Determine the age category
+    if (age < 13) {
+        console.log("You are a child.");
+    } else if (age >= 13 && age <= 19) {
+        console.log("You are a teenager.");
+    } else {
+        console.log("You are an adult.");
+    }
 }
